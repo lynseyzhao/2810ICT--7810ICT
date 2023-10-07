@@ -57,7 +57,7 @@ class MyGridTable5(wx.grid.GridTableBase):
         self.data = data
         self.num_rows = len(data)
         self.num_cols = 5  # Set the number of columns to 4
-        self.colLabels = ["id", "name", "review_scores_rating", "review_scores_cleanliness", "number_of_reviews"]
+        self.colLabels = ["id", "name", "review_scores_rating", "review_scores_accuracy", "number_of_reviews"]
         self.rowLabels = rows
 
     def GetNumberRows(self):
