@@ -1,5 +1,5 @@
 # Retrieve all records that contain a keyword (user entered), e.g. pool, pet.
-# Retrieve all records that contain a keyword (user entered), e.g. pool, pet.
+
 import wx, wx.grid
 import sqlite3
 from support import Signal,MyGridTable
