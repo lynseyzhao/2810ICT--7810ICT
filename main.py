@@ -16,7 +16,7 @@ class App(wx.App):
         self.Time_Window = Retrieve_By_Time(None, title="Retrieve By Time", pos=(100, 100), size=(1000, 630))
         self.Price_Window = Housing_Price_Trend(None, title="Housing Price Trend", pos=(100, 100), size=(1000, 630))
         self.Keyword_Window = Keyword_Search(None, title="Keyword Search", pos=(100, 100), size=(1000, 630))
-        self.Cleanliness_Window = Cleanliness_Analysing(None, title="Analysing Properties Cleanliness", pos=(200, 100), size=(1000, 630))
+        self.Cleanliness_Window = Cleanliness_Analysing(None, title="Analysing Properties Cleanliness", pos=(100, 100), size=(1000, 630))
         self.Rating_Window = Properties_Rating(None, title="Properties Rating", pos=(100, 100), size=(1000, 630))
 
         #switch from main to other windows
