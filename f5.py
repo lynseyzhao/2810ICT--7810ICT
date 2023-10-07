@@ -22,17 +22,17 @@ class Properties_Rating(wx.Frame):
 
 
     def setup_ui(self):
-        self.sql = "SELECT id, name, review_scores_rating, review_scores_cleanliness, number_of_reviews FROM Listings_Dec18 WHERE id IN (SELECT DISTINCT listing_id FROM Calendar_Dec18 WHERE substr(date, 1, 4) || substr(date, 6, 2) || substr(date, 9, 2) BETWEEN '{}' AND '{}')".format(
+        self.sql = "SELECT id, name, review_scores_rating, review_scores_accuracy, number_of_reviews FROM Listings_Dec18 WHERE id IN (SELECT DISTINCT listing_id FROM Calendar_Dec18 WHERE substr(date, 1, 4) || substr(date, 6, 2) || substr(date, 9, 2) BETWEEN '{}' AND '{}')".format(
             20181207, 20181208)
-        self.cur.execute(self.sql)  # execute
-        self.data = self.cur.fetchall()  # fetchall all rows
-        self.page = 0  # first page
-        self.index = rows  # set index
+        self.cur.execute(self.sql) 
+        self.data = self.cur.fetchall() 
+        self.page = 0  
+        self.index = rows  
 
-        # panel
+        # Panel
         self.panel = wx.Panel(self)
 
-        # define component
+        # Define component
         self.mainButton = wx.Button(self.panel, label='Back', size=(100, 30))
         self.grid = wx.grid.Grid(parent=self.panel)
 
@@ -44,7 +44,7 @@ class Properties_Rating(wx.Frame):
         self.grid.SetColLabelValue(0, "id")
         self.grid.SetColLabelValue(1, "name")
         self.grid.SetColLabelValue(2, "review_scores_rating")
-        self.grid.SetColLabelValue(3, "review_scores_cleanliness")
+        self.grid.SetColLabelValue(3, "review_scores_accuracy")
         self.grid.SetColLabelValue(4, "number_of_reviews")
 
         self.backButton = wx.Button(self.panel, label='<', size=(40, 20))
@@ -60,7 +60,7 @@ class Properties_Rating(wx.Frame):
         self.backButton.Bind(wx.EVT_BUTTON, lambda event, page=-1: self.get_page(event, page))
         self.nextButton.Bind(wx.EVT_BUTTON, lambda event, page=1: self.get_page(event, page))
 
-    # table data reading
+    # Table data reading
     def table_set(self, data):
         # Set up the table with the extracted data
         table = MyGridTable5(data, self.index)
@@ -91,20 +91,18 @@ class Properties_Rating(wx.Frame):
         table_sizer.Add(self.grid, flag=wx.ALIGN_CENTER)
 
         # Add the table sizer to the main sizer
-        main_sizer.Add(table_sizer, flag=wx.ALIGN_CENTER, border=10)  # Add a margin of 10 pixels below the table
+        main_sizer.Add(table_sizer, flag=wx.ALIGN_CENTER, border=10) 
 
         main_sizer.AddSpacer(15)
 
         # Create a horizontal sizer for the back and next buttons
         button_sizer = wx.BoxSizer(wx.HORIZONTAL)
         button_sizer.Add(self.backButton, flag=wx.ALL, border=5)
-        button_sizer.AddSpacer(20)  # Add space between the back and next buttons
+        button_sizer.AddSpacer(20)  
         button_sizer.Add(self.nextButton, flag=wx.ALL, border=5)
 
-        # Add the button sizer to the main sizer
         main_sizer.Add(button_sizer, flag=wx.ALIGN_CENTER)
 
-        # Set the main sizer for the panel
         self.panel.SetSizer(main_sizer)
 
     def get_page(self, event, page):
@@ -113,9 +111,9 @@ class Properties_Rating(wx.Frame):
         elif page == 1 and int(self.index[-1]) >= len(self.data):
             pass
         else:
-            self.page += page  # first page
-            self.index = list(map(lambda x: str(int(x) + page * 20), self.index))  # index
-            self.table_set(self.data[self.page * 20: self.page * 20 + 20])  # get data
+            self.page += page 
+            self.index = list(map(lambda x: str(int(x) + page * 20), self.index))
+            self.table_set(self.data[self.page * 20: self.page * 20 + 20])
 
     #Return to main window
     def back_mainWindow(self,event):
@@ -128,7 +126,7 @@ class Properties_Rating(wx.Frame):
 if __name__ == '__main__':
     con = sqlite3.connect('Sydney_Airbnb.db')
     cur = con.cursor()
-    sql = "SELECT id, name, review_scores_rating, review_scores_cleanliness, number_of_reviews FROM Listings_Dec18 WHERE id IN (SELECT DISTINCT listing_id FROM Calendar_Dec18 WHERE substr(date, 1, 4) || substr(date, 6, 2) || substr(date, 9, 2) BETWEEN '{}' AND '{}')".format(
+    sql = "SELECT id, name, review_scores_rating, review_scores_accuracy, number_of_reviews FROM Listings_Dec18 WHERE id IN (SELECT DISTINCT listing_id FROM Calendar_Dec18 WHERE substr(date, 1, 4) || substr(date, 6, 2) || substr(date, 9, 2) BETWEEN '{}' AND '{}')".format(
         20181207, 20181208)
     cur.execute(sql)
     data = cur.fetchall()
