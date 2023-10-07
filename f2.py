@@ -1,5 +1,5 @@
 # Produce a chart to show the distribution of prices of properties
-# Produce a chart to show the distribution of prices of properties
+
 import wx, wx.grid
 import sqlite3
 import pandas as pd
