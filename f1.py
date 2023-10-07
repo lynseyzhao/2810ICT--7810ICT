@@ -1,7 +1,8 @@
 # Report the information of all listings in a specified suburb
+
 import wx, wx.grid
 import sqlite3
-from support import Signal, MyGridTable
+from support import Signal,MyGridTable
 
 # rows number
 rows = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
@@ -96,6 +97,17 @@ class Retrieve_By_Time(wx.Frame):
 
     #search/find button
     def search(self, event):
+        start_date = self.file1.GetValue()
+        end_date = self.file2.GetValue()
+
+        print(f"Start Date: {start_date}, End Date: {end_date}")
+
+        sql = f"""select * from Listings_Dec18 where id in 
+                          (select distinct listing_id from Calendar_Dec18 where 
+                          substr(date,1,4) || substr(date,6,2) || substr(date,9,2) 
+                          between '{start_date}' and '{end_date}')"""
+
+        print(f"SQL: {sql}")
         if len(self.file1.GetValue()) == 10 and len(self.file2.GetValue()) == 10 and len(self.file1.GetValue().replace('-', '')) == 8 and len(self.file2.GetValue().replace('-', '')) == 8:
             global start, end
             start = self.file1.GetValue().split('-')[0] + self.file1.GetValue().split('-')[1] + self.file1.GetValue().split('-')[2]
