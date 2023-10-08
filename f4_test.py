@@ -25,11 +25,10 @@ def frame(mocker):
 
 @pytest.fixture
 def mock_dataframe(mocker):
-    mocker.patch('pandas.read_csv', side_effect=mock_read_csv)  # Mock read_csv method
+    mocker.patch('pandas.read_csv', side_effect=mock_read_csv) 
 
 def test_update_chart(frame, mock_dataframe):
     selected_keyword = "clean"
-    # Test will fail if any exception occurs in the method
     frame.update_chart(selected_keyword)
 
 @pytest.fixture
@@ -42,5 +41,4 @@ def mock_draw_chart_data():
 
 def test_draw_chart(frame, mock_draw_chart_data):
     selected_keyword = "clean"
-    # Test will fail if any exception occurs in the method
     frame.draw_chart(mock_draw_chart_data, selected_keyword)
