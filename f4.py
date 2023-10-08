@@ -48,10 +48,9 @@ class Cleanliness_Analysing(wx.Frame):
         # picture initialization
         self.init_picture()
 
-        # Create a horizontal sizer for the cleanliness dropdown and main button (aligned in the same line)
         button_and_dropdown_sizer = wx.BoxSizer(wx.HORIZONTAL)
         button_and_dropdown_sizer.Add(self.mainButton, flag=wx.ALL | wx.ALIGN_CENTER_VERTICAL, border=5)
-        button_and_dropdown_sizer.AddSpacer(500)  # Add some space between the button and dropdown
+        button_and_dropdown_sizer.AddSpacer(500)  
         button_and_dropdown_sizer.Add(cleanliness_label, flag=wx.ALL | wx.ALIGN_CENTER_VERTICAL, border=0)
         button_and_dropdown_sizer.Add(self.cleanliness_dropdown, flag=wx.ALL | wx.ALIGN_CENTER_VERTICAL, border=5)
 
@@ -64,7 +63,6 @@ class Cleanliness_Analysing(wx.Frame):
         main_sizer.Add(input_and_button_sizer, flag=wx.ALL, border=0)
         main_sizer.Add(self.cannvas, flag=wx.ALL | wx.ALIGN_CENTRE_HORIZONTAL, border=0)
 
-        # Set the main sizer for the panel
         self.panel.SetSizer(main_sizer)
 
         self.mainButton.Bind(wx.EVT_BUTTON, self.back_mainWindow)
@@ -75,7 +73,6 @@ class Cleanliness_Analysing(wx.Frame):
         self.update_chart(selected_keyword)
 
     def update_chart(self, selected_keyword):
-        # Load data from CSV files (replace with your actual file paths)
         listings_data = pd.read_csv('dataset/listings_dec18.csv', usecols=['id', 'name', 'property_type'])
         reviews_data = pd.read_csv('dataset/reviews_dec18.csv', usecols=['listing_id', 'reviewer_name', 'comments'])
 
@@ -100,7 +97,6 @@ class Cleanliness_Analysing(wx.Frame):
         self.figure.clf()
         ax = self.figure.add_subplot(111)
 
-        # Prepare data for chart (e.g., 'property_type' vs. 'number_of_mentions')
         property_types = data['property_type']
         number_of_people = data['number_of_people']
 
@@ -116,7 +112,7 @@ class Cleanliness_Analysing(wx.Frame):
         ax.set_xticks(x_ticks)
         ax.set_xticklabels(property_types, rotation=90, ha='center')
 
-        self.cannvas.draw()  # Refresh the canvas
+        self.cannvas.draw()  
 
     # Initial picture
     def init_picture(self):
@@ -168,10 +164,9 @@ class Cleanliness_Analysing(wx.Frame):
         self.cannvas = FigureCanvas(self.panel, -1, self.figure)
 
         self.axes = self.figure.add_subplot(111)
-        self.axes.set_xticks(np.arange(40))  # setting X axies range。
-        self.axes.set_xticklabels(property_names, rotation=-90)  # setting x axies label。
-        self.axes.set_xlim(left=-1, right=40, emit=True,
-                           auto=False)  # setting limit,user are not able to drag the frame
+        self.axes.set_xticks(np.arange(40))  
+        self.axes.set_xticklabels(property_names, rotation=-90) 
+        self.axes.set_xlim(left=-1, right=40, emit=True, auto=False)  
         self.axes.set_ylim(0, 1000)
         self.axes.spines['top'].set_visible(False)
         self.axes.spines['right'].set_visible(False)
