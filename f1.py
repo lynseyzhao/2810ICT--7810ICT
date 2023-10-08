@@ -13,8 +13,8 @@ class Retrieve_By_Time(wx.Frame):
         self.return_signal = Signal(name='Return Back')
 
         #dataset connection
-        self.con = sqlite3.connect('Sydney_Airbnb.db')# connect with dataset
-        self.cur = self.con.cursor()#cursor
+        self.con = sqlite3.connect('Sydney_Airbnb.db')
+        self.cur = self.con.cursor()
 
         #Initialization
         self.setup_ui()
@@ -23,10 +23,10 @@ class Retrieve_By_Time(wx.Frame):
 
     def setup_ui(self):
         self.sql = "select * from Listings_Dec18 limit 20"#I only select two thousand records, otherwise crash
-        self.cur.execute(self.sql)# execute
-        self.data = self.cur.fetchall() #fetchall all rows
-        self.page = 0# firstpage
-        self.index = rows# set index
+        self.cur.execute(self.sql)
+        self.data = self.cur.fetchall() 
+        self.page = 0
+        self.index = rows
 
         # panel
         self.panel = wx.Panel(self)
@@ -118,9 +118,9 @@ class Retrieve_By_Time(wx.Frame):
             if len(self.data) == 0:
                 wx.MessageBox("Not Found: Please enter value within date range / incorrect date")
             else:
-                self.page = 0# first page
-                self.index = rows# set index
-                self.table_set(self.data[self.page: self.page + 20])# get data
+                self.page = 0
+                self.index = rows
+                self.table_set(self.data[self.page: self.page + 20])
         else:
             wx.MessageBox("Not Found: Please enter right date format")
 
@@ -131,9 +131,9 @@ class Retrieve_By_Time(wx.Frame):
         elif page == 1 and int(self.index[-1]) >= len(self.data):
             pass
         else:
-            self.page += page# first page
-            self.index = list(map(lambda x: str(int(x) + page * 20), self.index))# index
-            self.table_set(self.data[self.page * 20: self.page * 20 + 20])# get data
+            self.page += page
+            self.index = list(map(lambda x: str(int(x) + page * 20), self.index))
+            self.table_set(self.data[self.page * 20: self.page * 20 + 20])
 
     #Return to main window
     def back_mainWindow(self,event):
@@ -144,8 +144,8 @@ class Retrieve_By_Time(wx.Frame):
         wx.Exit()
 
 if __name__ == '__main__':
-    con = sqlite3.connect('Sydney_Airbnb.db')# connect with dataset
-    cur = con.cursor()#cursor
+    con = sqlite3.connect('Sydney_Airbnb.db')
+    cur = con.cursor()
     sql ="select * from Listings_Dec18 where id in (select distinct listing_id from Calendar_Dec18 where substr(date,1,4) || substr(date,6,2) || substr(date,9,2) between '{}' and '{}')".format("20181207", "20181208")
     cur.execute(sql)
     data = cur.fetchall()
