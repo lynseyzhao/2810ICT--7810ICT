@@ -1,0 +1,92 @@
+Birdy@DESKTOP-GM21B2D MINGW64 ~/2810ICT--7810ICT (main)
+$ git log
+commit 3e9f8e697e3c962f590377bd9715e7edb46616fe (HEAD -> main, origin/main, origin/HEAD)
+Author: lvimtran <79822695+lvimtran@users.noreply.github.com>
+Date:   Mon Oct 9 08:08:17 2023 +1000
+
+    Add files via upload
+
+commit 9dc4d6da4c9f64cf3bb053f0852fa4d102ad3596
+Author: lvimtran <79822695+lvimtran@users.noreply.github.com>
+Date:   Sun Oct 8 22:14:51 2023 +1000
+
+    Add files via upload
+
+commit 7164057d20dc077e8f1faeba333aa5562b789831
+Author: siklyy <140678849+siklyy@users.noreply.github.com>
+Date:   Sun Oct 8 22:00:44 2023 +1000
+
+    Add files via upload
+
+commit ea8012a93be220a57684fb829483fe0ebc77de26
+Author: siklyy <140678849+siklyy@users.noreply.github.com>
+Date:   Sun Oct 8 15:44:51 2023 +1000
+
+:...skipping...
+commit 3e9f8e697e3c962f590377bd9715e7edb46616fe (HEAD -> main, origin/main, origin/HEAD)
+Author: lvimtran <79822695+lvimtran@users.noreply.github.com>
+Date:   Mon Oct 9 08:08:17 2023 +1000
+
+    Add files via upload
+
+commit 9dc4d6da4c9f64cf3bb053f0852fa4d102ad3596
+Author: lvimtran <79822695+lvimtran@users.noreply.github.com>
+Date:   Sun Oct 8 22:14:51 2023 +1000
+
+    Add files via upload
+
+commit 7164057d20dc077e8f1faeba333aa5562b789831
+Author: siklyy <140678849+siklyy@users.noreply.github.com>
+Date:   Sun Oct 8 22:00:44 2023 +1000
+
+    Add files via upload
+
+commit ea8012a93be220a57684fb829483fe0ebc77de26
+Author: siklyy <140678849+siklyy@users.noreply.github.com>
+Date:   Sun Oct 8 15:44:51 2023 +1000
+
+    Add files via upload
+
+commit 4a05c5d690b8da2234929287c8c6b1f13b3cd28b
+Author: siklyy <140678849+siklyy@users.noreply.github.com>
+Date:   Sat Oct 7 12:17:13 2023 +1000
+
+    Add files via upload
+
+commit c9e2ce6f3caae3a647aa435efe704721ad325cd3
+Author: lvimtran <79822695+lvimtran@users.noreply.github.com>
+Date:   Sat Oct 7 11:42:22 2023 +1000
+
+    Update README.md
+
+commit 1e157d19643ff3e8083c0c084dedf54de7f12f62
+Author: liangxian zhao <106801129+lynseyzhao@users.noreply.github.com>
+Date:   Thu Oct 5 18:15:41 2023 +1000
+
+    Add files via upload
+
+commit d1ad5ebf31961c6d72634ae112f155430b0cc251
+Author: lvimtran <79822695+lvimtran@users.noreply.github.com>
+Date:   Wed Oct 4 22:09:31 2023 +1000
+
+    Delete Software_Testing_Report.docx
+
+commit b36e5d854d2efb7c14f0e3beb9f58427cc9af776
+Author: liangxian zhao <106801129+lynseyzhao@users.noreply.github.com>
+Date:   Fri Sep 29 16:09:39 2023 +1000
+
+    Add files via upload
+
+commit e4a572a4b79b2915fdb9fd0cdf7861aba12bda35
+Author: liangxian zhao <106801129+lynseyzhao@users.noreply.github.com>
+Date:   Fri Sep 29 16:01:34 2023 +1000
+
+    Add files via upload
+
+commit 70f88f212fc81e73b1d18f1afcb5894562113848
+Author: lvimtran <79822695+lvimtran@users.noreply.github.com>
+Date:   Thu Sep 21 12:09:32 2023 +1000
+
+    Create README.md
+
+:
